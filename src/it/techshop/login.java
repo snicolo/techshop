@@ -48,7 +48,7 @@ public class login extends HttpServlet {
 			String ricorda=request.getParameter("ricorda");
 			if(ricorda!=null && ricorda.equals("1")){
 				System.out.println("aggiungo cookie");
-				Cookie cookie = new Cookie("loginCookie", "fewfwe");
+				Cookie cookie = new Cookie("adminCookie", "fewfwe");
 				cookie.setMaxAge(60*60*24*2);
 				response.addCookie(cookie);
 			}

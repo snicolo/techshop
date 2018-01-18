@@ -25,6 +25,7 @@ public class Client {
 			this.nome = nome;
 			this.cognome = cognome;
 			this.indirizzo = indirizzo;
+			this.cf_piva = cf_piva;
 			this.telefono = telefono;
 			this.email = email;
 			
@@ -76,6 +77,14 @@ public class Client {
 		
 		public void setIndirizzo(String indirizzo){
 			this.indirizzo = indirizzo;
+		}
+		
+		public String getCFPIVA(){
+			return cf_piva;
+		}
+		
+		public void setCFPIVA(String cf_piva){
+			this.cf_piva = cf_piva;
 		}
 		
 		public String getTelefono(){

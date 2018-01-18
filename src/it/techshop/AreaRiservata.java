@@ -33,7 +33,7 @@ public class AreaRiservata extends HttpServlet {
 		Cookie[] cookies=request.getCookies();
 		  if(cookies != null)
 			  for(int i=0; i< cookies.length; i++)
-				  if(cookies[i].getName().equals("loginCookie")){
+				  if(cookies[i].getName().equals("adminCookie")){
 					  String value=cookies[i].getValue();
 					  if(value.equals("fewfwe"))
 					  trovatoCookie=true;
