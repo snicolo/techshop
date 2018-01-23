@@ -1,6 +1,8 @@
 package it.techshop.dao.beans;
 
-public class Client {
+
+
+public class Cliente {
 
 	    private int idcliente;
 		private String username;
@@ -9,15 +11,15 @@ public class Client {
 		private String cognome;
 		private String indirizzo;
 		private String cf_piva;
-		private String telefono;
+		private int telefono;
 		private String email;
 		
-		public Client(){
+		public Cliente(){
 			super();
 			
 		}
 		
-		public Client(int idcliente, String username, String password, String nome, String cognome, String indirizzo, String cf_piva, String telefono, String email){
+		public Cliente(int idcliente, String username, String password, String nome, String cognome, String indirizzo, String cf_piva, int telefono, String email){
 			super();
 			this.idcliente = idcliente;
 			this.username = username;
@@ -87,11 +89,11 @@ public class Client {
 			this.cf_piva = cf_piva;
 		}
 		
-		public String getTelefono(){
+		public int getTelefono(){
 			return telefono;
 		}
 		
-		public void setTelefono(String telefono){
+		public void setTelefono(int telefono){
 			this.telefono = telefono;
 		}
 		
@@ -102,5 +104,31 @@ public class Client {
 		public void setEmail(String email){
 			this.email = email;
 		}
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + idcliente;
+			return result;
+		}
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			Cliente other = (Cliente) obj;
+			if (idcliente != other.idcliente)
+				return false;
+			return true;
+		}
+		@Override
+		public String toString() {
+			return "Cliente [idCliente=" + idcliente + ", username=" + username +", password=" + password +", nome=" + nome + ", cognome=" + cognome + ", indirizzo=" + indirizzo +", cf_piva=" + cf_piva +", email=" + email +", telefono=" + telefono + "]";
+		}
+		
 	}
+
 

@@ -9,13 +9,13 @@
 </head>
 <body>
  <%@ include file="/header.jsp"%>
-   <%= request.getSession().getId() %>
+  <%= request.getSession().getId() %>  
  
  <%
   Cookie[] cookies=request.getCookies();
 	if (cookies!=null)
 		for(int i=0; i< cookies.length; i++)
-			response.sendRedirect("/techshop/adminarea.jsp");
+			response.sendRedirect("/techshop/adminarea.jsp"); 
 %>
 		
  <br>
