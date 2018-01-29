@@ -38,7 +38,12 @@
         </div>
       </li>
       <li class="nav-item">
+      <% if(session == null){ %>
         <a class="nav-link" href="/techshop/login.jsp">Login</a>
+        <%} else {
+        	%>
+         <a class="nav-link" href="/techshop/logout">Logout</a>
+       <%} %>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">

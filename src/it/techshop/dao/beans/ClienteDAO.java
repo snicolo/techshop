@@ -42,7 +42,7 @@ public class ClienteDAO {
 				res.setCognome(rs.getString("cognome"));
 				res.setIndirizzo(rs.getString("indirizzo"));
 				res.setCFPIVA(rs.getString("cf_piva"));
-				res.setTelefono(rs.getInt("telefono"));
+				res.setTelefono(rs.getString("telefono"));
 				res.setEmail(rs.getString("email"));
 				
 			}
@@ -76,7 +76,7 @@ public class ClienteDAO {
 				cliente.setCognome(rs.getString("cognome"));
 				cliente.setIndirizzo(rs.getString("indirizzo"));
 				cliente.setCFPIVA(rs.getString("cf_piva"));
-				cliente.setTelefono(rs.getInt("telefono"));
+				cliente.setTelefono(rs.getString("telefono"));
 				cliente.setEmail(rs.getString("email"));
 				
 				
@@ -111,7 +111,7 @@ public class ClienteDAO {
 			ps.setString(5,  cliente.getCognome());
 			ps.setString(6, cliente.getIndirizzo());
 			ps.setString(7, cliente.getCFPIVA());
-			ps.setInt(8, cliente.getTelefono());
+			ps.setString(8, cliente.getTelefono());
 		    ps.setString(9, cliente.getPassword());
 			
 			int tmp = ps.executeUpdate();
@@ -130,8 +130,9 @@ public class ClienteDAO {
 	public Cliente getCliente(Cliente cliente){
 		String usr= cliente.getUsername();
 		String cfpiva = cliente.getCFPIVA();
+		int id = cliente.getIdCliente();
 		
-		String query = "SELECT * FROM CLIENTE WHERE username=? OR cf_piva=?";
+		String query = "SELECT * FROM CLIENTE WHERE idcliente=? OR username=? OR cf_piva=?";
 		System.out.println(query);
 		
 		Cliente res = null;
@@ -141,8 +142,10 @@ public class ClienteDAO {
 		conn=DBManager.startConnection();
 		try{
 			ps = conn.prepareStatement(query);
-			ps.setString(1, cliente.getUsername());
-			ps.setString(2,  cliente.getCFPIVA());
+			ps.setInt(1, cliente.getIdCliente());
+			ps.setString(2, cliente.getUsername());
+			ps.setString(3,  cliente.getCFPIVA());
+			
 			
 			ResultSet rs = ps.executeQuery();
 			
@@ -156,7 +159,7 @@ public class ClienteDAO {
 				res.setIndirizzo(rs.getString("indirizzo"));
 				res.setCFPIVA(rs.getString("cf_piva"));
 				res.setEmail(rs.getString("email"));
-				res.setTelefono(rs.getInt("telefono"));
+				res.setTelefono(rs.getString("telefono"));
 			}
 		} catch (SQLException e) {
 			// TODO: handle exception

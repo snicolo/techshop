@@ -9,7 +9,7 @@
 </head>
 <body>
  <%@ include file="/header.jsp"%>
-  <%= request.getSession().getId() %>  
+<%--  <%= request.getSession().getId() %>  
  
  <%
   Cookie[] cookies=request.getCookies();
@@ -17,7 +17,7 @@
 		for(int i=0; i< cookies.length; i++)
 			response.sendRedirect("/techshop/adminarea.jsp"); 
 %>
-		
+	--%>	
  <br>
   <div class="container-fluid">
   

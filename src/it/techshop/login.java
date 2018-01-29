@@ -48,12 +48,12 @@ public class login extends HttpServlet {
 			String ricorda=request.getParameter("ricorda");
 			if(ricorda!=null && ricorda.equals("1")){
 				System.out.println("aggiungo cookie");
-				Cookie cookie = new Cookie("adminCookie", "fewfwe");
-				cookie.setMaxAge(60*60*24*2);
+				Cookie cookie = new Cookie("loginCookie", "fewfwe");
+				cookie.setMaxAge(60*1);
 				response.addCookie(cookie);
 			}
 			
-			response.sendRedirect("AreaRiservata");
+			response.sendRedirect("adminarea.jsp");
 		}
 		
 		else 

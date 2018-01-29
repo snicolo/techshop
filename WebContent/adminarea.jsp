@@ -12,20 +12,14 @@
 	<%@ include file="/header.jsp"%>
 	<br>
 
-	<%--  <%= request.getSession().getId() %>
+
  
 
  
  
- Cookie[] cookies=request.getCookies();
-	if (cookies!=null)
-		for(int i=0; i< cookies.length; i++)
-		  out.println(cookies[i].getName()+""+cookies[i].getValue());
-	else
-		out.println("nessun cookie presente");
-				
-			
- %>  --%>
+ <% Cookie[] cookies=request.getCookies();
+	if (session!=null){ %>
+ 
 
 
 
@@ -79,7 +73,7 @@
 		</div>
 	</div>
 
-
+<%}; %>
 
 	<%@ include file="/footer.jsp"%>
 </body>

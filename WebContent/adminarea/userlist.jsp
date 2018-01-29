@@ -82,8 +82,8 @@
       <td><%= c.getCFPIVA() %></td>
       <td><%= c.getTelefono() %></td>
       <td><%= c.getEmail() %></td>
-      <td><a href="ModificaCliente?id=<% c.getIdCliente();%>">Modifica</a></td>
-      <td><a href="RimuoviCliente?id=<% c.getIdCliente();%>">Elimina</a></td>
+      <td><a href="ModificaCliente?id=<%= c.getIdCliente()%>">Modifica</a></td>
+      <td><a href="RimuoviCliente?id=<%= c.getIdCliente()%>">Elimina</a></td>
      </tr>
       <%} %>
  </tbody>

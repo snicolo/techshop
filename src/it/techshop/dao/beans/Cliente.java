@@ -11,7 +11,7 @@ public class Cliente {
 		private String cognome;
 		private String indirizzo;
 		private String cf_piva;
-		private int telefono;
+		private String telefono;
 		private String email;
 		
 		public Cliente(){
@@ -19,7 +19,7 @@ public class Cliente {
 			
 		}
 		
-		public Cliente(int idcliente, String username, String password, String nome, String cognome, String indirizzo, String cf_piva, int telefono, String email){
+		public Cliente(int idcliente, String username, String password, String nome, String cognome, String indirizzo, String cf_piva, String telefono, String email){
 			super();
 			this.idcliente = idcliente;
 			this.username = username;
@@ -89,11 +89,11 @@ public class Cliente {
 			this.cf_piva = cf_piva;
 		}
 		
-		public int getTelefono(){
+		public String getTelefono(){
 			return telefono;
 		}
 		
-		public void setTelefono(int telefono){
+		public void setTelefono(String telefono){
 			this.telefono = telefono;
 		}
 		
