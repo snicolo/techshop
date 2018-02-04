@@ -4,12 +4,14 @@ import java.util.Date;
 
 
 public class Effettua {
-	Date dataordine;
-	int idcliente;
-	int idordine;
+	private Date dataordine;
+	private int idcliente;
+	private int idordine;
 	
 	public Effettua(){
 		super();
+	}
+	public Effettua(Date dataordine, int idcliente, int idordine){
 		this.dataordine=dataordine;
 		this.idcliente=idcliente;
 		this.idordine=idordine;
@@ -37,4 +39,30 @@ public class Effettua {
 	public void setIdordine(int idordine){
 		this.idordine=idordine;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + idordine;
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Effettua other = (Effettua) obj;
+		if (idordine != other.idordine)
+			return false;
+		return true;
+	}
+	@Override
+	public String toString() {
+		return "Cliente [idOrdine=" + idordine + ", idcliente=" + idcliente +", dataordine=" + dataordine +"]";
+	}
+	
 }
+

@@ -13,7 +13,7 @@ import it.techshop.dao.utils.DBManager;
 public class EffettuaDAO {
 
 	private Connection conn;
-	
+	//restituisce ordini effettuati da un dato cliente o in una certa data
 	public Effettua getOrdineEff(Effettua effettua){
 		Date dataord=effettua.getDataordine();
 		int idcl=effettua.getIdcliente();
@@ -45,7 +45,7 @@ public class EffettuaDAO {
 		return res;
 		
 	}
-	
+	// restituisce i clienti che hanno effettuato almeno un ordine
 	public Vector<Effettua> getClientiOrdine(){
 		String query = "SELECT idcliente FROM EFFETTUA";
 		Vector<Effettua> res = new Vector<Effettua>();
