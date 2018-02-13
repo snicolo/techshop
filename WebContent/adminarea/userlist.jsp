@@ -16,28 +16,34 @@
 <body>
 	<%@ include file="/header.jsp"%>
 	<br>
+		<%
+		Cookie[] ck = request.getCookies();
+		if (ck != null) {
+			for (int i = 0; i < ck.length; i++) {
+				String name = ck[i].getName();
+				String value = ck[i].getValue();
+				if (name.equals("admin")) {
+				
+					
+	%>
+ 
 	<div class="container">
+	
+ 	
+				
+			
+
+	
+
 		<input class="form-control mr-sm-2" type="search"
 			placeholder="Cerca utente" aria-label="Search">
 	</div>
 	
 	
-<h3> ciao </h3>
-	<br>
-<%= request.getSession().getId() %>
 
 
 
-	<%
- Cookie[] cookies=request.getCookies();
-	if (cookies!=null)
-		for(int i=0; i< cookies.length; i++)
-			out.println(cookies[i].getName()+""+cookies[i].getValue());
-	else
-		out.println("nessun cookie presente");
-				
-			
- %> 
+
 
 
 	<% 
@@ -85,11 +91,11 @@
       <td><a href="ModificaCliente?id=<%= c.getIdCliente()%>">Modifica</a></td>
       <td><a href="RimuoviCliente?id=<%= c.getIdCliente()%>">Elimina</a></td>
      </tr>
-      <%} %>
+      <%}%>
  </tbody>
 
  </table>
-
+<% }}} %>
 </div>
 
 	<%@ include file="/footer.jsp"%>

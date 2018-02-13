@@ -31,23 +31,23 @@ public class logout extends HttpServlet {
 		// TODO Auto-generated method stub
 	
 		HttpSession session=request.getSession();
+		
 		session.invalidate();
 		
 		
-		Cookie[] cookies=request.getCookies();
-		if (cookies!=null)
-			for(int i=0; i< cookies.length; i++)
-				if(cookies[i].getName().equals("loginCookie")){
-					String value=cookies[i].getValue();
-					if (value.equals("fewfwe")){
-						cookies[i].setMaxAge(0);
-						response.addCookie(cookies[i]);
-					}
+		Cookie[] ck=request.getCookies();
+		if (ck!=null)
+			for(int i=0; i< ck.length; i++)
+				if(ck[i].getName().equals("admin")){
+					String value=ck[i].getValue();
+					ck[i].setMaxAge(0);
+						response.addCookie(ck[i]);
+					
 					break;
 				}
 
-		response.getWriter().append(session.getId());
 		response.sendRedirect("http://localhost:8080/techshop/");
+		
 	}
 
 	/**

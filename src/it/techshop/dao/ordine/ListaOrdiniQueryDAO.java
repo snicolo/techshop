@@ -48,7 +48,7 @@ public class ListaOrdiniQueryDAO {
 	}
 	
 	public Vector<ListaOrdiniQuery> getListaOrdiniDetail(){
-		String query="";
+		String query="SELECT DISTINCT ordine.idordine, effettua.dataordine, effettua.idcliente, effettua.idcliente, ordine.importoord FROM ORDINE INNER JOIN EFFETTUA ON ORDINE.idordine = EFFETTUA.idordine INNER JOIN CLIENTE ON CLIENTE.idcliente = EFFETTUA.idcliente";
 	   Vector<ListaOrdiniQuery> res = new Vector<ListaOrdiniQuery>();
 	   
 	   PreparedStatement ps;
@@ -60,10 +60,10 @@ public class ListaOrdiniQueryDAO {
 		   while(rs.next()){
 			   ListaOrdiniQuery listaordini = new ListaOrdiniQuery();
 			   listaordini.setIdordine(rs.getInt("idordine"));
-			   listaordini.setDataordine(rs.getDate("dataordine"));
+			  listaordini.setDataordine(rs.getDate("dataordine"));
 			   listaordini.setIdcliente(rs.getInt("idcliente"));
-			   listaordini.setIdprodotto(rs.getString("idprodotto"));
-			   listaordini.setImportoordine(rs.getFloat("importoord"));
+			 //  listaordini.setIdprodotto(rs.getString("idprodotto"));
+			  listaordini.setImportoordine(rs.getFloat("importoord"));
 			   
 			   res.add(listaordini);
 		   }

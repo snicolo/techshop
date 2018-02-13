@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import it.techshop.login;
+import it.techshop.dao.beans.Admin;
 
 /**
  * Servlet implementation class AreaRiservata
@@ -30,31 +32,29 @@ public class AreaRiservata extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		boolean trovatoCookie=false;
-		Cookie[] cookies=request.getCookies();
-		  if(cookies != null)
-			  for(int i=0; i< cookies.length; i++)
-				  if(cookies[i].getName().equals("adminCookie")){
-					  String value=cookies[i].getValue();
-					  if(value.equals("fewfwe"))
+		
+		Cookie[] ck=request.getCookies();
+		  if(ck != null){
+			  for(int i=0; i< ck.length; i++)
+				  if(ck[i].getName().equals("admin")){
+					  String value=ck[i].getValue();
+					  if(value.equals("admin"))
 					  trovatoCookie=true;
 					  break;
 				  }
 		  
-		  System.out.println(trovatoCookie);
+		  System.out.println(trovatoCookie+" perzonafalza");
 		  
 		  HttpSession session=request.getSession();
 		if(session.getAttribute("autenticato")==null && trovatoCookie==false)
 			response.sendRedirect("error.html");
 			  else
 				  response.sendRedirect("adminarea.jsp");
-	}
+	}}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+	
 
 }

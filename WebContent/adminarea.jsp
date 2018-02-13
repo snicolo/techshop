@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@page session="false" %>
 <%@ page import="it.techshop.dao.beans.Admin"%>
 <%@page import="javax.websocket.Session"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -17,8 +18,16 @@
 
  
  
- <% Cookie[] cookies=request.getCookies();
-	if (session!=null){ %>
+<%
+		Cookie[] ck = request.getCookies();
+		if (ck != null) {
+			for (int i = 0; i < ck.length; i++) {
+				String name = ck[i].getName();
+				String value = ck[i].getValue();
+				if (name.equals("admin")) {
+				
+					
+	%>
  
 
 
@@ -29,7 +38,8 @@
 			<div class="float-md-left">
 				<h2>Benvenuto</h2>
 			</div>
-
+      
+      
 		</div>
 	</div>
 	<br>
@@ -50,7 +60,7 @@
 
 
 
-					<a href="./adminarea/orderlist.jsp" class="btn btn-primary btn-lg"
+					<a href="ListaOrdini" class="btn btn-primary btn-lg"
 						role="button" aria-pressed="false"><i class="fa fa-list"
 						aria-hidden="true"></i> Lista Ordini</a><br> <a
 						href="VisualizzaClienti" class="btn btn-primary btn-lg"
@@ -73,7 +83,16 @@
 		</div>
 	</div>
 
-<%}; %>
+
+			<%  break;	} 
+				
+				}
+			
+			
+			
+			
+			 // to stop further execution
+		} %>
 
 	<%@ include file="/footer.jsp"%>
 </body>

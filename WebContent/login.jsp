@@ -1,6 +1,7 @@
 <%@page import="javax.websocket.Session"%> 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page session="false" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,15 +10,31 @@
 </head>
 <body>
  <%@ include file="/header.jsp"%>
-<%--  <%= request.getSession().getId() %>  
- 
- <%
-  Cookie[] cookies=request.getCookies();
-	if (cookies!=null)
-		for(int i=0; i< cookies.length; i++)
-			response.sendRedirect("/techshop/adminarea.jsp"); 
-%>
-	--%>	
+
+  
+  <%
+	Cookie[] ck = request.getCookies();
+	if (ck != null) {
+		for (int i = 0; i < ck.length; i++) {
+			String name = ck[i].getName();
+			String value = ck[i].getValue();
+			if (name.equals("admin")) {
+					response.sendRedirect("adminarea.jsp");
+					break; // exit the loop and continue the page
+				}}}
+				//if (i == (ck.length - 1)) // if all cookie are not valid redirect to error page
+				//{
+					//response.sendRedirect("login.jsp");
+					//return; // to stop further execution
+				//}
+			//i++;
+		//	}
+		//} else {
+			//response.sendRedirect("login.jsp");
+			//return; // to stop further execution
+		
+	%>
+ 	
  <br>
   <div class="container-fluid">
   

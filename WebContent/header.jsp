@@ -1,5 +1,7 @@
+<%@page import="org.apache.jasper.tagplugins.jstl.core.Catch"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page session="false" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,6 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <!--  navbar responsive -->
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #3270cf;">
   <a class="navbar-brand" href="#">TechShop</a>
@@ -26,24 +29,36 @@
       <li class="nav-item">
         <a class="nav-link" href="/techshop/shop.jsp">Negozio</a>
       </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/techshop/shop.jsp">News</a>
+      </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
+        <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Area Riservata
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a> 
+          <a class="dropdown-item" href="login.jsp">Profilo</a>
+           <div class="dropdown-divider"></div>
+          <% 
+          HttpSession session=request.getSession(false);
+          if (session!=null){ %>
+             <a class="dropdown-item" href="logout">Logout</a>
+<%} else { %>
+        <a class="dropdown-item" href="login.jsp">Login</a>
+        <%} %>
+          
         </div>
       </li>
       <li class="nav-item">
-      <% if(session == null){ %>
-        <a class="nav-link" href="/techshop/login.jsp">Login</a>
-        <%} else {
-        	%>
-         <a class="nav-link" href="/techshop/logout">Logout</a>
-       <%} %>
+
+      
+      
+      
+      
+      
+      
+
+
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">

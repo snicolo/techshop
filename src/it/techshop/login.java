@@ -30,42 +30,43 @@ public class login extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		AdminDAO amministratoreDAO=new AdminDAO();
+		
 		String us=request.getParameter("nome");
 		String pw=request.getParameter("pass");
 		
 		
 		Admin amministratore=new Admin(us,pw,"","","");
 		
-		AdminDAO amministratoreDAO=new AdminDAO();
+		
 		amministratore=amministratoreDAO.loginAdmin(amministratore);
 		
 		if(amministratore!=null){
 			HttpSession session=request.getSession();
 			session.setAttribute("autenticato", true);
 			
-			String ricorda=request.getParameter("ricorda");
-			if(ricorda!=null && ricorda.equals("1")){
-				System.out.println("aggiungo cookie");
-				Cookie cookie = new Cookie("loginCookie", "fewfwe");
-				cookie.setMaxAge(60*1);
-				response.addCookie(cookie);
-			}
-			
-			response.sendRedirect("adminarea.jsp");
+			String ric=request.getParameter("ricorda");
+			if(ric!=null && ric.equals("1"))
+			  System.out.println("aggiungo cookie");
+				Cookie ck = new Cookie("admin", us);
+				ck.setMaxAge(60*60*24*2);
+				response.addCookie(ck);
+			//}
+			//	request.setAttribute("admin", us);
+				//request.getRequestDispatcher("AreaRiservata").forward(request, response);
+		response.sendRedirect("AreaRiservata");
 		}
 		
 		else 
 			response.sendRedirect("www.google.it");
 	}
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+	
 
-}
+
