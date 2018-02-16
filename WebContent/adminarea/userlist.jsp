@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>utenti</title>
+<title>Utenti</title>
 </head>
 <body>
 	<%@ include file="/header.jsp"%>
@@ -33,10 +33,11 @@
 				
 			
 
-	
-
-		<input class="form-control mr-sm-2" type="search"
-			placeholder="Cerca utente" aria-label="Search">
+	<form name="ricercaCliente" action="<%=request.getContextPath()%>/RircercaCliente" class="form-inline" method="get">
+  
+		<input class="form-control mr-sm-2" name="username" type="search"
+			placeholder="inserisci username" aria-label="Search">
+			 <button class="btn btn-outline-blue my-2 my-sm-0" type="submit">Search</button></form>
 	</div>
 	
 	

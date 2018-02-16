@@ -6,12 +6,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Login</title>
 </head>
 <body>
  <%@ include file="/header.jsp"%>
 
-  
+  <%-- se già loggati reindirizza all'area amministrazione --%>
   <%
 	Cookie[] ck = request.getCookies();
 	if (ck != null) {
@@ -22,29 +22,29 @@
 					response.sendRedirect("adminarea.jsp");
 					break; // exit the loop and continue the page
 				}}}
-				//if (i == (ck.length - 1)) // if all cookie are not valid redirect to error page
-				//{
-					//response.sendRedirect("login.jsp");
-					//return; // to stop further execution
-				//}
-			//i++;
-		//	}
-		//} else {
-			//response.sendRedirect("login.jsp");
-			//return; // to stop further execution
+	
 		
 	%>
  	
  <br>
   <div class="container-fluid">
   
+
+
+<div class="container-fluid">
+
+  <div class="row">
+  <br>
+    <div class="col">
+    <h3>Effettua il Login</h3>
+      <br> 
  <form name="login" action="login" method="post">
-  <div class="form-row">
-    <div class="form-group col-md-6" action="login">
-      <label for="inputEmail4">Email</label>
+  <div class="form-group">
+    <div class="form-group col-md-8" action="login">
+      <label for="inputEmail4">Username</label>
       <input type="text" class="form-control" name="nome" placeholder="username">
     </div>
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-8">
       <label for="inputPassword4">Password</label>
       <input type="password" class="form-control" name="pass" placeholder="Password">
     </div>
@@ -56,19 +56,21 @@
       </label>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
+  <button type="submit" class="btn btn-primary">Entra</button>
 </form>
+     
+    </div>
+    <div class="col">
+   <h3>Non hai un account?</h3>
+   <h4><a href="<%=request.getContextPath()%>/registrazione.jsp">Registrati</a></h4>
+    
+    </div>
+  </div>
+ 
+ </div>
 
-</div>
  <br> 
  
- <!--   <form name="login" action="login" method="post" >
-	<input type="text" name="nome" text="Nome"></br>
-	<input type="password" name="pass" text="Password"></br>
-	<input type="checkbox" name="ridorda" value="1">Ricordami</br> 
-			<input type="submit" value="Invia Nome" ></br>
-	
-		</form> -->
  
  
 

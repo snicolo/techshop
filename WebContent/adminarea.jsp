@@ -48,7 +48,7 @@
 
 
 			<div class="col-12 col-sm-12 col-md-3 col-xl-3">
-				<div class="card" style="width: 20, 5rem;">test</div>
+				<div class="card" style="width: 20, 5rem;"></div>
 			</div>
 
 			<div class="col-12 col-sm-12 col-md-9 col-xl-9">
@@ -60,16 +60,16 @@
 
 
 
-					<a href="ListaOrdini" class="btn btn-primary btn-lg"
+					<a href="<%=request.getContextPath()%>/ListaOrdini" class="btn btn-primary btn-lg"
 						role="button" aria-pressed="false"><i class="fa fa-list"
 						aria-hidden="true"></i> Lista Ordini</a><br> <a
-						href="VisualizzaClienti" class="btn btn-primary btn-lg"
+						href="<%=request.getContextPath()%>/VisualizzaClienti" class="btn btn-primary btn-lg"
 						role="button" aria-pressed="false"><i class="fa fa-user"
 						aria-hidden="true"></i> Utenti</a><br> <a
 						href="./adminarea/catalogue.jsp" class="btn btn-primary btn-lg"
 						role="button" aria-pressed="false"><i class="fa fa-laptop"
-						aria-hidden="true"></i> Catalogo</a><br> <a
-						href="./adminarea/newslist.jsp" class="btn btn-primary btn-lg"
+						aria-hidden="true"></i> Catalogo</a><br>  <a
+						href="<%=request.getContextPath()%>/ListaNews?action=admin" class="btn btn-primary btn-lg"
 						role="button" aria-pressed="false"><i
 						class="fa fa-newspaper-o" aria-hidden="true"></i> News</a><br> <a
 						href="./adminarea/coupon.jsp" class="btn btn-primary btn-lg"

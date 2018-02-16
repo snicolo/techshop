@@ -1,4 +1,4 @@
-package it.techshop.dao.privato.cliente;
+package it.techshop.servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -13,16 +13,16 @@ import it.techshop.dao.news.News;
 import it.techshop.dao.news.NewsDAO;
 
 /**
- * Servlet implementation class RimuoviCliente
+ * Servlet implementation class NuovoArticolo
  */
-@WebServlet("/RimuoviCliente")
-public class RimuoviCliente extends HttpServlet {
+@WebServlet("/NuovoArticolo")
+public class NuovoArticolo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RimuoviCliente() {
+    public NuovoArticolo() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,12 +33,16 @@ public class RimuoviCliente extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		String idc = request.getParameter("id");
-		int idcl = Integer.parseInt(idc);
-		Cliente cliente = new Cliente(idcl, "","","","","","","","");
-		ClienteDAO clientedao = new ClienteDAO();
-		cliente = clientedao.rimuoviCliente(cliente);
-		request.getRequestDispatcher("VisualizzaClienti").forward(request, response);
+		String idn = request.getParameter("id");
+		 String tit = request.getParameter("title");
+		 String des = request.getParameter("desc");
+		 
+		 News news = new News (idn, null, tit,des);
+		 NewsDAO newsdao = new NewsDAO();
+		 news=newsdao.inserisciNews(news);
+		 
+		 request.getRequestDispatcher("ListaNews?action=admin").forward(request, response);
+			
 	}
 
 	/**

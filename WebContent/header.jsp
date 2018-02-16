@@ -27,24 +27,24 @@
         <a class="nav-link" href=".">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/techshop/shop.jsp">Negozio</a>
+        <a class="nav-link" href="<%=request.getContextPath()%>/shop.jsp">Negozio</a>
       </li>
         <li class="nav-item">
-        <a class="nav-link" href="/techshop/shop.jsp">News</a>
+        <a class="nav-link" href="<%=request.getContextPath()%>/ListaNews?action=user">News</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Area Riservata
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="login.jsp">Profilo</a>
+          <a class="dropdown-item" href="<%=request.getContextPath()%>/login.jsp">Profilo</a>
            <div class="dropdown-divider"></div>
           <% 
           HttpSession session=request.getSession(false);
           if (session!=null){ %>
              <a class="dropdown-item" href="logout">Logout</a>
 <%} else { %>
-        <a class="dropdown-item" href="login.jsp">Login</a>
+        <a class="dropdown-item" href="<%=request.getContextPath()%>/login.jsp">Login</a>
         <%} %>
           
         </div>

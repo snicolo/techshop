@@ -9,20 +9,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import it.techshop.dao.beans.Cliente;
 import it.techshop.dao.beans.ClienteDAO;
-import it.techshop.dao.news.News;
-import it.techshop.dao.news.NewsDAO;
 
 /**
- * Servlet implementation class RimuoviCliente
+ * Servlet implementation class AggiornaCliente
  */
-@WebServlet("/RimuoviCliente")
-public class RimuoviCliente extends HttpServlet {
+@WebServlet("/AggiornaCliente")
+public class AggiornaCliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RimuoviCliente() {
+    public AggiornaCliente() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,11 +32,23 @@ public class RimuoviCliente extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		String idc = request.getParameter("id");
+		
 		int idcl = Integer.parseInt(idc);
-		Cliente cliente = new Cliente(idcl, "","","","","","","","");
-		ClienteDAO clientedao = new ClienteDAO();
-		cliente = clientedao.rimuoviCliente(cliente);
-		request.getRequestDispatcher("VisualizzaClienti").forward(request, response);
+		String us = request.getParameter("username");
+		 String pass = request.getParameter("password");
+		 String nom = request.getParameter("nome");
+		 String cogn = request.getParameter("cognome");
+		 String ind = request.getParameter("indirizzo");
+		 String piva = request.getParameter("cf_piva");
+		 String tel = request.getParameter("telefono");
+		 String em = request.getParameter("email");
+		 
+		 Cliente cliente = new Cliente(idcl,us,pass,nom,cogn,ind,piva,tel,em);
+		 ClienteDAO clientedao = new ClienteDAO();
+		 cliente=clientedao.UpdateCliente(cliente);
+		// request.setAttribute("cliente", cliente);
+		 response.sendRedirect("VisualizzaClienti");
+		 
 	}
 
 	/**
@@ -47,6 +57,7 @@ public class RimuoviCliente extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+		
 	}
 
 }

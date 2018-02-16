@@ -31,6 +31,8 @@ public class AreaRiservata extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		request.getAttribute("admin");
 		boolean trovatoCookie=false;
 		
 		Cookie[] ck=request.getCookies();
@@ -43,13 +45,14 @@ public class AreaRiservata extends HttpServlet {
 					  break;
 				  }
 		  
-		  System.out.println(trovatoCookie+" perzonafalza");
+		  System.out.println(trovatoCookie);
 		  
 		  HttpSession session=request.getSession();
 		if(session.getAttribute("autenticato")==null && trovatoCookie==false)
 			response.sendRedirect("error.html");
 			  else
-				  response.sendRedirect("adminarea.jsp");
+			response.sendRedirect("adminarea.jsp");
+			
 	}}
 
 	/**

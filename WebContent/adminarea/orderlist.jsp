@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Lista Ordini</title>
 </head>
 <body>
  <%@ include file="/header.jsp"%>
@@ -55,9 +55,13 @@
       <th scope="col">Data</th>
       
       <th scope="col">IDCliente</th>
+       <th scope="col">Username</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Cognome</th>
       <th scope="col">Importo</th>
 
       <th scope="col"><i class="fa fa-pencil" aria-hidden="true"></i></th>
+      <th scope="col"><i class="fa fa-trash" aria-hidden="true"></i></th>
     
     </tr>
   </thead>
@@ -69,9 +73,13 @@
       <td><%= L.getDataordine() %></td> 
       
       <td><%= L.getIdcliente() %></td>
+       <td><%= L.getUsername() %></td> 
+       <td><%= L.getNome() %></td> 
+        <td><%= L.getCognome() %></td> 
     <td><%= L.getImportoordine() %></td>
  
-      <td><a href="ModificaCliente?id=<%= L.getIdcliente()%>">Modifica</a></td>
+      <td><a href="DettagliOrdine?id=<%= L.getIdcliente()%>">Dettagli</a></td>
+      <td><a href="ModificaCliente?id=<%= L.getIdcliente()%>">Eimina</a></td>
      
      </tr>
       <%} %>

@@ -8,18 +8,26 @@ public class ListaOrdiniQuery {
 	private Date dataordine;
 	private Float importoord;
 	private String idprodotto;
+	private String nome;
+	private String cognome;
+	private String username;
+	private String nomeprodotto;
+	private Float prezzoprodotto;
+	
 	
 	public ListaOrdiniQuery(){
 		super();
 	}
 	
-	public ListaOrdiniQuery(int idcliente, int idordine, Date dataordine, Float importoord, String idprodotto){
+	public ListaOrdiniQuery(int idcliente, int idordine, Date dataordine, Float importoord, String idprodotto, String nome, String cognome, String username, String nomeprodotto, Float prezzoprodotto){
 		super();
 		this.idcliente=idcliente;
 		this.idordine=idordine;
 		this.dataordine=dataordine;
 		this.importoord=importoord;
 		this.idprodotto=idprodotto;
+		this.nomeprodotto=nomeprodotto;
+		this.prezzoprodotto=prezzoprodotto;
 	}
 	
 	public int getIdcliente(){
@@ -59,5 +67,43 @@ public class ListaOrdiniQuery {
 	public void setIdprodotto(String idprodotto){
 		this.idprodotto = idprodotto;
 	}
-
+	
+	public String getNome (){
+		return nome;
+	}
+	
+	public void setNome(String nome){
+		this.nome=nome;
+	}
+	
+	public String getCognome(){
+		return cognome;
+	}
+	
+	public void setCognome(String cognome){
+	   this.cognome=cognome;
+	}
+	public String getUsername(){
+		return username;
+	}
+	
+	public void setUsername(String username){
+		this.username=username;
+	}
+	
+	public String getNomeProdotto(){
+		return nomeprodotto;
+	}
+	
+	public void setNomeProdotto(String nomeprodotto){
+		this.nomeprodotto=nomeprodotto;
+	}
+	
+	public Float getPrezzoProdotto(){
+		return prezzoprodotto;
+	}
+	
+	public void setPrezzoProdotto(Float prezzoprodotto){
+		this.prezzoprodotto=prezzoprodotto;
+	}
 }

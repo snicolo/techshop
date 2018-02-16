@@ -53,14 +53,13 @@ public class login extends HttpServlet {
 				Cookie ck = new Cookie("admin", us);
 				ck.setMaxAge(60*60*24*2);
 				response.addCookie(ck);
-			//}
-			//	request.setAttribute("admin", us);
-				//request.getRequestDispatcher("AreaRiservata").forward(request, response);
-		response.sendRedirect("AreaRiservata");
+			
+		
+		         response.sendRedirect("AreaRiservata");
 		}
 		
 		else 
-			response.sendRedirect("www.google.it");
+		response.sendRedirect("error.html");
 	}
 	}
 

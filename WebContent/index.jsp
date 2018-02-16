@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Home</title>
 </head>
 <body>
  <%@ include file="/header.jsp"%>
@@ -17,14 +17,12 @@
    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="image/slide-1.jpg" alt="First slide">
+      <img class="d-block w-100" src="image/slide-2.jpg" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Second slide">
+      <img class="d-block w-100" src="image/slide-1.jpg" alt="Second slide">
     </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Third slide">
-    </div>
+  
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -37,32 +35,33 @@
 </div>
 <br>
 
-<h2>Ultime News</h2>
-<div class="card-group">
+<h2>Discover</h2>
+<div class="card-deck">
+<a href="<%=request.getContextPath()%>/ListaNews?action=user">
   <div class="card">
-    <img class="card-img-top" src="..." alt="Card image cap">
+    <img class="card-img-top" src="image/news-1.png" alt="Card image cap">
     <div class="card-body">
-      <h4 class="card-title">Card title</h4>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
+      <h5 class="card-title">Vai alle News</h5>
+      <p class="card-text">Rimani aggiornato sulle novità e promozioni</p>
+     
+    </div></a>
   </div>
+  <a href="<%=request.getContextPath()%>/shop.jsp">
   <div class="card">
-    <img class="card-img-top" src="..." alt="Card image cap">
+    <img class="card-img-top" src="image/shop-1.png" alt="Card image cap">
     <div class="card-body">
-      <h4 class="card-title">Card title</h4>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
+      <h5 class="card-title">Visita il nostro Shop</h5>
+      <p class="card-text">Cerca tra i nostri prodotti</p>
+     
+    </div></a>
   </div>
-  <div class="card">
-    <img class="card-img-top" src="..." alt="Card image cap">
+  <a href="<%=request.getContextPath()%>/login.jsp"><div class="card">
+    <img class="card-img-top" src="image/accedi-1.png" alt="Card image cap">
     <div class="card-body">
-      <h4 class="card-title">Card title</h4>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <h5 class="card-title">Accedi</h5>
+      <p class="card-text">Effettua l'accesso e vai all'area riservata</p>
     </div>
-  </div>
+  </div></a>
 </div>
 
 
