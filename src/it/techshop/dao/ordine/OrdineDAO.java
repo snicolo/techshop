@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
 
+import it.techshop.dao.beans.Cliente;
 import it.techshop.dao.utils.DBManager;
 
 public class OrdineDAO {
@@ -92,4 +93,35 @@ public class OrdineDAO {
     	
     	
     }
+    
+    public Ordine rimuoviOrdine(Ordine ordine){
+		int ido=ordine.getIdOrdine();
+		
+		String query="DELETE FROM ORDINE WHERE idordine=?";
+		System.out.println(query);
+		
+		Ordine res = null;
+		PreparedStatement ps;
+		conn=DBManager.startConnection();
+		try{
+			ps = conn.prepareStatement(query);
+			ps.setInt(1,  ordine.getIdOrdine());
+			
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()){
+				res = new Ordine();
+				res.setIdOrdine(rs.getInt("idordine"));
+				res.setImportoOrdine(rs.getFloat("importoord"));
+				
+			}
+			
+			
+		} catch(SQLException e){
+			e.printStackTrace();
+		
+			}
+			DBManager.closeConnection();
+			return res;
+		
+	}
 }

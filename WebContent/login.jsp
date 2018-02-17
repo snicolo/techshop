@@ -20,7 +20,7 @@
 			String value = ck[i].getValue();
 			if (name.equals("admin")) {
 					response.sendRedirect("adminarea.jsp");
-					break; // exit the loop and continue the page
+					break; 
 				}}}
 	
 		

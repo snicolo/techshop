@@ -42,7 +42,7 @@
       <th scope="col">Data</th>
       <th scope="col">Titolo</th>
       <th scope="col">Descrizione</th>
-       <th scope="col"><i class="fa fa-pencil" aria-hidden="true"></i></th>
+     <%--  <th scope="col"><i class="fa fa-pencil" aria-hidden="true"></i></th> --%> 
       <th scope="col"><i class="fa fa-minus-circle" aria-hidden="true"></i></th>
     </tr>
   </thead>
@@ -52,7 +52,7 @@
       <th scope="row"><%= n.getData() %></th>
       <td><%= n.getTitolo() %></td>
       <td><%= n.getDescrizione() %></td>
-      <td><a href="ModificaCliente?id=<%= n.getIdnews()%>">Modifica</a></td>
+     <%--  <td><a href="ModificaCliente?id=<%= n.getIdnews()%>">Modifica</a></td> --%>
       <td><a href="<%=request.getContextPath()%>/CancellaArticolo?id=<%= n.getIdnews()%>">Elimina</a></td>
     </tr>
    <%}}}} %>

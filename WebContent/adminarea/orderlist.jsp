@@ -59,9 +59,10 @@
       <th scope="col">Nome</th>
       <th scope="col">Cognome</th>
       <th scope="col">Importo</th>
-
-      <th scope="col"><i class="fa fa-pencil" aria-hidden="true"></i></th>
-      <th scope="col"><i class="fa fa-trash" aria-hidden="true"></i></th>
+      
+ <%-- funzionalità da aggiungere  --%>
+  <%--   <th scope="col"><i class="fa fa-pencil" aria-hidden="true"></i></th> --%>
+   <%--    <th scope="col"><i class="fa fa-trash" aria-hidden="true"></i></th> --%>
     
     </tr>
   </thead>
@@ -78,8 +79,8 @@
         <td><%= L.getCognome() %></td> 
     <td><%= L.getImportoordine() %></td>
  
-      <td><a href="DettagliOrdine?id=<%= L.getIdcliente()%>">Dettagli</a></td>
-      <td><a href="ModificaCliente?id=<%= L.getIdcliente()%>">Eimina</a></td>
+     <%--  <td><a href="DettagliOrdine?id=<%= L.getIdcliente()%>">Dettagli</a></td> --%>
+     <%--  <td><a href="RimuoviOrdine?id=<%= L.getIdordine()%>">Eimina</a></td> --%>
      
      </tr>
       <%} %>

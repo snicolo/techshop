@@ -11,6 +11,8 @@ import javax.servlet.http.HttpSession;
 
 import it.techshop.dao.beans.Admin;
 import it.techshop.dao.beans.AdminDAO;
+import it.techshop.dao.beans.Cliente;
+import it.techshop.dao.beans.ClienteDAO;
 
 /**
  * Servlet implementation class login
@@ -18,14 +20,14 @@ import it.techshop.dao.beans.AdminDAO;
 @WebServlet("/login")
 public class login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public login() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public login() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -33,39 +35,65 @@ public class login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		AdminDAO amministratoreDAO=new AdminDAO();
-		
+
 		String us=request.getParameter("nome");
 		String pw=request.getParameter("pass");
-		
-		
+
+
 		Admin amministratore=new Admin(us,pw,"","","");
-		
-		
+
+
 		amministratore=amministratoreDAO.loginAdmin(amministratore);
 		
+		Cliente cliente = new Cliente(0, us, pw, "","","","","","");
+		ClienteDAO clientedao = new ClienteDAO();
+		cliente = clientedao.loginCliente(cliente);
+
 		if(amministratore!=null){
 			HttpSession session=request.getSession();
 			session.setAttribute("autenticato", true);
-			
+
 			String ric=request.getParameter("ricorda");
 			if(ric!=null && ric.equals("1"))
-			  System.out.println("aggiungo cookie");
-				Cookie ck = new Cookie("admin", us);
-				ck.setMaxAge(60*60*24*2);
-				response.addCookie(ck);
-			
-		
-		         response.sendRedirect("AreaRiservata");
-		}
-		
-		else 
-		response.sendRedirect("error.html");
-	}
-	}
+				System.out.println("aggiungo cookie");
+			Cookie ck = new Cookie("admin", us);
+			ck.setMaxAge(60*60*24*2);
+			response.addCookie(ck);
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	
+
+			response.sendRedirect("AreaRiservata");
+		}
+
+		else {
+
+
+			
+			if(cliente != null){
+				{
+					HttpSession session=request.getSession();
+					session.setAttribute("autenticato", true);
+
+					String ric=request.getParameter("ricorda");
+					if(ric!=null && ric.equals("1"))
+						System.out.println("aggiungo cookie");
+					Cookie ck = new Cookie("user", us);
+					ck.setMaxAge(60*60*24*2);
+					response.addCookie(ck);
+					request.setAttribute("cliente", cliente);
+					//request.getRequestDispatcher("AreaRiservata").forward(request, response);
+
+					response.sendRedirect(".");
+			}
+		} else {
+			response.sendRedirect("error.html");
+	}
+}}}
+
+
+/**
+ * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+ */
+
+
 
 
